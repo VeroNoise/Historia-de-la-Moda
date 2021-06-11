@@ -1,0 +1,378 @@
+/* Colores Corporativos Referenciados
+#b2004c Morado Navbar
+#b2004c Numeros titulo  
+#604651 Footer
+#A2AAAD Identificador de década
+#8AD6DF Identificador de año
+#c3be3fff Eje 1 Mostaza
+#2db8b5ec Eje 2 Turquesa
+#f9a723ec Eje 3 Naranja
+#e06666ff Eje 4 Salmon
+#c286ae Eje 5 Lila
+#2ab87bec Eje 6 Verde
+*/
+
+.navbar {
+  background-color: #b2004c;
+  height: 4rem;
+  color: whitesmoke;
+}
+
+.navbar img {
+  width: 60px;
+  height: 30px;
+}
+
+ /* Extra large devices (large desktops, 1200px and up)*/
+ @media (min-width: 1200px) { 
+  .navbar h2 {
+    margin-left: 1rem;
+  }
+ }
+
+/* Small devices (landscape phones, 576px and up)*/ 
+@media (min-width: 576px) { 
+  .navbar h2 {
+    margin-left: 6rem;
+  }
+ }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: whitesmoke;
+}
+
+.dropdown-item.disabled {
+  color: whitesmoke;
+  background-color: #b2004c;
+}
+
+body {
+  font-family: 'D-DIN';
+}
+
+main {
+  font-family: 'PT Serif';
+
+  /* Dejamos márgenes arriba del contenido principal para que no quede oculto
+   * por la navbar. */
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+main p {
+  /* Con esto nos evitamos tener que poner la clase `text-justify` en todos
+   * lados. */
+  text-align: justify;
+}
+
+footer {
+  height: 3rem;
+  background-color: #4d0021;
+}
+
+footer img {
+  width: 100px;
+  height: 50px;
+  padding-bottom: 1rem;
+}
+
+.timeline h1,
+.decada {
+  font-family: 'D-DIN Exp';
+  font-weight: bold;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.introduccion,
+.conclusion {
+  font-style: italic;
+  font-size: larger;
+}
+
+.id-anual {
+  font-size: xx-large;
+  color: #b2364c;
+}
+
+/* Anulamos el display: flex del media para que se comporten como bloques
+ * normales por default. */
+.media {
+  display: block;
+}
+
+/* Estilos para md y superior. */
+@media (min-width: 768px) {
+  /* Volvemos el media a su comportamiento original. */
+  .media {
+    display: flex;
+  }
+}
+
+/* Estilos hasta md no inclusive. */
+@media (max-width: 767px) {
+
+  /* Esto hace que las clases que usamos para controlar el tamaño de las
+   * imágenes usen todo el ancho. */
+  .media .w-25,
+  .media .w-50,
+  .media .w-75 {
+    width: 100% !important;
+  }
+}
+
+/* Estilos para lg y superior. */
+@media (min-width: 992px) {
+  /* Sólo rotamos el año cuando queda al costado. */
+  .id-anual {
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+  }
+}
+
+.evento {
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Etiquetas de Ejes temáticos. */
+.badge-pill {
+  font-family: 'D-DIN Condensed';
+  padding: 0.4rem 0.8rem;
+}
+
+.eje1 {
+  background-color: #c3be3fff;
+}
+
+.eje2 {
+  background-color: #2db8b5ec;
+}
+
+.eje3 {
+  background-color: #f9a723ec;
+}
+
+.eje4 {
+  background-color: #e06666ff;
+}
+
+.eje5 {
+  background-color: #c286ae;
+}
+
+.eje6 {
+  background-color: #2ab87bec;
+}
+
+/* Línea de tiempo. */
+/* Genera un div vacío que ocupa el tamaño de la pantalla y hace crecer el
+ * contenedor de la línea de tiempo. */
+.full-height {
+  display: block;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Aparecer atrás de todo. */
+  z-index: -9999;
+}
+
+.timeline {
+  position: absolute;
+
+  /* Espacio para la navbar. */
+  top: 4rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  /* Espacio para el footer. */
+  margin-bottom: 2rem;
+}
+
+.timeline iframe {
+  width: 100%;
+  height: 100%;
+
+  /* Espacio para el footer. */
+  padding-bottom: 2rem;
+}
+
+/* Desde tamaño md hacia abajo, convertir el menú en un panel "offcanvas". */
+@media (max-width: 768px) {
+  .panel-offcanvas {
+    position: fixed;
+    top: 3rem;
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #b2004c;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    /* Previene que bootstrap achique el panel mientras está desapareciendo,
+     * así tenemos una animación más fluída. */
+    height: 100% !important;
+  }
+
+  .panel-offcanvas.show {
+    visibility: visible;
+    /* Mover el panel a la derecha. */
+    transform: translateX(-100%);
+  }
+
+  /* Esta es la clase que bootstrap agrega mientras está colapsando el menú. */
+  .panel-offcanvas.collapsing {
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+  }
+}
+
+.criterio-1 {
+  /* Un gris cualquiera con transparencia. */
+  background-color: #E2C9D4;
+  border-radius: 0.3rem;
+
+  /* Queda acá y no en el p para que agrande también las etiquetas. */
+  font-size: larger;
+}
+
+.criterio-2 {
+  border-color: #B92665;
+  border-radius: 0.3rem;
+  border-style: solid dashed;
+
+  /* Mismo tamaño que .criterio-1 para diferenciarme mejor de .criterio-3. */
+  font-size: larger;
+}
+
+.criterio-3 {
+  /* Evento default. */
+}
+
+.imagen-con-pie p {
+  text-align: center;
+}
+
+.imagen-con-pie img {
+  /* Aumenta el tamaño de la imagen al máximo dentro del contenedor, haciendo
+   * que el epígrafe no sobresalga. */
+  width: 100%;
+}
+
+/* FIXME Prototipo, ver issue. */
+.resaltado {
+  border-left: 0.5rem #B92665 solid;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  font-size: larger;
+}
+
+/* FIXME Prototipo, ver issue #18. */
+.subetiqueta {
+  color: #b2004c;
+}
+
+/* FIXME Prototipo, ver issue #18. */
+.subetiqueta.resaltada {
+  font-size: larger;
+  text-decoration: bold;
+}
+
+/* Estilos para las citas remarcadas. */
+.cita-remarcada {
+  font-style: italic;
+  font-size: large;
+  margin: 4rem;
+}
+
+.cita-remarcada blockquote {
+  line-height: 1.8rem;
+  /* Realinear el indentado del primer renglón para que las comillas puestas en
+   * :before no lo desfasen. La mitad de tamaño que la font-size de las
+   * comillas. */
+  text-indent: -1.5rem;
+}
+
+/* Genera unas comillas antes y después de la cita, de color azul YPF. */
+.cita-remarcada blockquote:before,
+.cita-remarcada blockquote:after {
+  font-size: 3rem;
+  vertical-align: middle;
+  color: #B92665;
+}
+
+.cita-remarcada blockquote:before {
+  content: open-quote;
+}
+
+.cita-remarcada blockquote:after {
+  content: close-quote;
+}
+
+.cita-remarcada .fuente {
+  text-align: right;
+}
+
+.cita-remarcada .autore {
+  font-style: normal;
+}
+
+/* Estilos para generar un modal "full screen". */
+.modal.full {
+  padding: 0 !important;
+}
+
+.modal.full .modal-dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+}
+
+.modal.full .modal-content {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.modal.full .modal-body {
+  overflow-y: auto;
+}
+
+.investigacion {
+  margin-top: 2rem;
+}
+
+.investigacion .fecha,
+.investigacion .autore {
+  text-align: right;
+  font-size: larger;
+  margin-bottom: 0;
+}
+
+/* Estilo para los videos y demás objetos incrustados. */
+.embed-responsive {
+  margin-bottom: 1rem;
+}
+
+/* Posiciona un anchor invisible para los links del menú, que no quede tapado
+ * por la navbar. */
+.linkeable {
+  position: relative;
+}
+
+.linkeable .anchor {
+  position: absolute;
+  top:-6rem;
+}
+
+.decada {
+  color: #b2004c;
+}
